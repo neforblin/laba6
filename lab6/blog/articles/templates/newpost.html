@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/article.css" />
+    <title>Django Public Blog - создать статью</title>
+  </head>
+
+  <body>
+
+    <header class="header-newpost">
+      <h1>Написать статью</h1>
+    </header>
+
+    <main class="main-post">
+      <form method="POST" class="form">
+        {% csrf_token %}
+        <!-- добавляет специальное скрытое поле в форму -->
+        <input class="input-title" 
+          type="text"
+          name="title"
+          placeholder="Название статьи"
+          value="{{ form.title }}"
+        />
+
+        <textarea class="textarea" name="text" placeholder="Текст статьи">{{ form.text }}</textarea>
+
+        <input class="input-submit" type="submit" value="Сохранить" />
+      </form>
+      {{ form.errors }}
+    </main>
+
+    <footer class="footer-newpost">
+      <h3>
+        <a href="/articles"> Перейти ко всем статьям. </a>
+      </h3>
+    </footer>
+
+  </body>
+</html>

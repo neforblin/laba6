@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Статья</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}/static/style.css">
+</head>
+<body  class="article">
+    <h4>
+        <a href="/articles/">Вернуться ко всем записям</a>
+        <a href="/register"><h4 class="post-title">Регистрация</h4></a>
+        <a href="/login/">Войти</a>
+    </h4>
+    <div class="one-post" >
+        <h2 class="post-title">{{ post.title }}</h2>
+        <div class="article-info">
+            <div class="article-author">{{ post.author.username }}</div>
+            <div class="article-created- date">{{ post.created_date }}</div>
+        </div>
+        <p class="article-text">{{ post.text }}</p>
+    </div>
+    <h6 >Post id:  {{ post.id }}</h3>
+</body>
+</html>
